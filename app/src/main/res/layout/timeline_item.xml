@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+    <View
+        android:layout_width="1dp"
+        android:layout_height="fill_parent"
+        android:layout_marginLeft="20dp"
+        android:background="#b3b3b3" />
+    <TextClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:textSize="12sp"
+        android:background="@drawable/bac_clock"
+        android:layout_centerVertical="true"
+        android:id="@+id/textClock"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:lineSpacingExtra="1dp"
+        android:text="MVPTimeLIne"
+        android:layout_toEndOf="@+id/textClock"/>
+</RelativeLayout>
