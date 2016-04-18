@@ -18,7 +18,8 @@ public class MyListAdapter extends ArrayAdapter<Item> {
     private List<Item> mItems;
 
     public void setItems(List<Item> items) {
-        mItems = items;
+        if (mItems==null) mItems = items;
+        else mItems.addAll(items);
     }
 
     private int resource;
@@ -26,7 +27,6 @@ public class MyListAdapter extends ArrayAdapter<Item> {
         super(context, resource);
         mLayoutInflater=LayoutInflater.from(context);
         this.resource=resource;
-//        this.mItems=items;
     }
 
     @Override
@@ -51,6 +51,7 @@ public class MyListAdapter extends ArrayAdapter<Item> {
             convertView=mLayoutInflater.inflate(resource,parent,false);
             viewHolder=new ViewHolder();
             viewHolder.mTextView= (TextView) convertView.findViewById(R.id.text);
+            viewHolder.mTextClock= (TextView) convertView.findViewById(R.id.textClock);
             convertView.setTag(viewHolder);
         }else {
             viewHolder= (ViewHolder) convertView.getTag();
@@ -59,9 +60,10 @@ public class MyListAdapter extends ArrayAdapter<Item> {
         return convertView;
     }
     static class ViewHolder{
-        TextView mTextView;
+        TextView mTextView,mTextClock;
 
         public void render(Item item){
+            mTextClock.setText(item.itemTime);
             mTextView.setText(item.itemName);
         }
     }

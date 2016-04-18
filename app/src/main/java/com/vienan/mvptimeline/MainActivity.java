@@ -9,6 +9,8 @@ import android.widget.ListView;
 
 import com.hannesdorfmann.mosby.mvp.lce.MvpLceActivity;
 
+import net.danlew.android.joda.JodaTimeAndroid;
+
 import java.util.List;
 
 public class MainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Item>, ItemsView, ItemsPresenter>
@@ -17,14 +19,15 @@ public class MainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Item>,
     private android.widget.ListView listView;
 
     private MyListAdapter mAdapter;
-    private LayoutInflater viewInflator;
+    private LayoutInflater viewInflater;
     private View headerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        JodaTimeAndroid.init(this);
         this.listView = (ListView) findViewById(R.id.listView);
-        viewInflator=LayoutInflater.from(this);
+        viewInflater=LayoutInflater.from(this);
 
         // Setup contentView == SwipeRefreshView
         contentView.setOnRefreshListener(this);
@@ -66,7 +69,7 @@ public class MainActivity extends MvpLceActivity<SwipeRefreshLayout, List<Item>,
     public void showContent() {
         super.showContent();
         if (headerView==null){
-            headerView=viewInflator.inflate(R.layout.list_header,null);
+            headerView=viewInflater.inflate(R.layout.list_header,null);
             listView.addHeaderView(headerView);
         }
         contentView.setRefreshing(false);

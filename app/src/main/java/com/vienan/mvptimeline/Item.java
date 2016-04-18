@@ -6,9 +6,10 @@ package com.vienan.mvptimeline;
  */
 public class Item {
 
-    String itemName;
+    String itemName,itemTime;
 
-    public Item(String itemName) {
+    public Item(String itemTime,String itemName) {
+        this.itemTime=itemTime;
         this.itemName = itemName;
     }
 }

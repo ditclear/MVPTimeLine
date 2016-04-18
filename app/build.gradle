@@ -6,7 +6,7 @@ android {
 
     defaultConfig {
         applicationId "com.vienan.mvptimeline"
-        minSdkVersion 17
+        minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
         versionName "1.0"
@@ -25,4 +25,5 @@ dependencies {
     compile 'com.hannesdorfmann.mosby:mvp:2.0.1'
     compile 'com.android.support:support-v13:23.3.0'
     compile 'com.android.support:design:23.3.0'
+    compile 'net.danlew:android.joda:2.9.3'
 }

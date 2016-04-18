@@ -32,7 +32,7 @@ public class SimpleItemsPresenter extends MvpBasePresenter<ItemsView>
             itemsLoader.cancel(true);
         }
 
-        itemsLoader = new ItemsAsyncLoader(++failingCounter % 2 != 0,
+        itemsLoader = new ItemsAsyncLoader(false,
                 new ItemsAsyncLoader.ItemsLoaderListener() {
 
                     @Override public void onSuccess(List<Item> items) {

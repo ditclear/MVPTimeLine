@@ -2,6 +2,8 @@ package com.vienan.mvptimeline;
 
 import android.os.AsyncTask;
 
+import org.joda.time.DateTime;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,16 +29,16 @@ public class ItemsAsyncLoader extends AsyncTask<Void,Void,List<Item>> {
     @Override protected List<Item> doInBackground(Void... params) {
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(5000);
         } catch (InterruptedException e) {
             return null;
         }
 
         List<Item> countries = new ArrayList<>();
-        for (int i = 0; i <5 ; i++) {
-            countries.add(new Item("Item #"+i));
+        for (int i = 0; i < 10; i++) {
+            String time=DateTime.now().minusWeeks(i).toString(" MM - dd");
+            countries.add(new Item(time,"item #"+time));
         }
-
         return countries;
     }
 
